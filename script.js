@@ -25,3 +25,13 @@ window.addEventListener('mousemove',
     console.log(mouse)
   }
 )
+
+// create constructor function for particle
+function Particle(x, y, directionX, directionY, size, color) {
+  this.x = x
+  this.y = y
+  this.directionX = directionX
+  this.directionY = directionY
+  this.size = size
+  this.color = color
+}
