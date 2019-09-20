@@ -40,7 +40,7 @@ function Particle(x, y, directionX, directionY, size, color) {
 // add draw method to particle prototype
 Particle.prototype.draw = function() {
   ctx.beginPath()
-  ctx.arc(this.x, this.y, this.size, 0, MathPI * 2, false)
+  ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false)
   ctx.fillStyle = this.color
   ctx.fill()
 }
@@ -84,8 +84,20 @@ function init() {
     let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2)
     let directionX = (Math.random() * .2) - .1
     let directionY = (Math.random() * .2) - .1
-    let color = color[Math.floor(Math.random() * colors.length)]
+    let color = colors[Math.floor(Math.random() * colors.length)]
 
     particleArray.push(new Particle(x, y, directionX, directionY, size, color))
   }
 }
+
+// animation loop
+function animate() {
+  requestAnimationFrame(animate)
+  ctx.clearRect(0,0,innerWidth, innerWidth)
+
+  for (let i = 0; i < particleArray.length; i++) {
+    particleArray[i].update()
+  }
+}
+init()
+animate()
