@@ -43,3 +43,13 @@ Particle.prototype.draw = function() {
   ctx.fillStyle = this.color
   ctx.fill()
 }
+// add update method to particle prototype
+Particle.prototype.update = function() {
+  if (this.x + this.size*2 > canvas.width ||
+      this.x - this.size*2 < 0) {
+        this.directionX = -this.directionY
+      }
+      this.x += this.directionX
+      this.y += this.directionY
+      
+}
