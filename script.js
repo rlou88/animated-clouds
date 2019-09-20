@@ -57,4 +57,19 @@ Particle.prototype.update = function() {
       this.x += this.directionX
       this.y += this.directionY
 
+  // mouse interactivity
+  if (  mouse.x - this.x < mouseRadius
+    &&  mouse.x - this.x > -mouseRadius
+    &&  mouse.y - this.y < mouseRadius
+    &&  mouse.y - this.y > -mouseRadius) {
+      if (this.size < maxSize) {
+          this.size += 3
+      }
+    } else if (this.size > minSize) {
+        this.size -= 0.1
+    }
+    if (this.size < 0) {
+        this.size = 0
+    }
+    this.draw()
 }
