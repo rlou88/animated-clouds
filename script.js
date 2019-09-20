@@ -109,3 +109,9 @@ window.addEventListener('resize',
     canvas.height = innerHeight
     init()
   })
+
+// remove mouse position periodically
+setInterval(function() {
+  mouse.x = undefined
+  mouse.y = undefined
+}, 1000)
