@@ -35,3 +35,11 @@ function Particle(x, y, directionX, directionY, size, color) {
   this.size = size
   this.color = color
 }
+
+// add draw method to particle prototype
+Particle.prototype.draw = function() {
+  ctx.beginPath()
+  ctx.arc(this.x, this.y, this.size, 0, MathPI * 2, false)
+  ctx.fillStyle = this.color
+  ctx.fill()
+}
