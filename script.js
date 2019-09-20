@@ -12,6 +12,7 @@ const colors = [
 ]
 const maxSize = 40
 const minSize = 0
+const mouseRadius = 60
 
 // mouse position
 let mouse = {
@@ -47,9 +48,13 @@ Particle.prototype.draw = function() {
 Particle.prototype.update = function() {
   if (this.x + this.size*2 > canvas.width ||
       this.x - this.size*2 < 0) {
-        this.directionX = -this.directionY
-      }
+        this.directionX = -this.directionX
+  }
+  if (this.y + this.size*2 > canvas.height ||
+      this.y - this.size*2 < 0) {
+        this.directiony = -this.directionY
+  }
       this.x += this.directionX
       this.y += this.directionY
-      
+
 }
