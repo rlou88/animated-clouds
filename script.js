@@ -44,6 +44,7 @@ Particle.prototype.draw = function() {
   ctx.fillStyle = this.color
   ctx.fill()
 }
+
 // add update method to particle prototype
 Particle.prototype.update = function() {
   if (this.x + this.size*2 > canvas.width ||
@@ -72,4 +73,19 @@ Particle.prototype.update = function() {
         this.size = 0
     }
     this.draw()
+}
+
+// create particle array
+function init() {
+  particleArray = []
+  for (let i = 0; i < 1000; i++) {
+    let size = 0
+    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2)
+    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2)
+    let directionX = (Math.random() * .2) - .1
+    let directionY = (Math.random() * .2) - .1
+    let color = color[Math.floor(Math.random() * colors.length)]
+
+    particleArray.push(new Particle(x, y, directionX, directionY, size, color))
+  }
 }
